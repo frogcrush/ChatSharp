@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace ChatSharp
@@ -26,7 +27,8 @@ namespace ChatSharp
         internal void Add(IrcChannel channel)
         {
             if (Channels.Any(c => c.Name == channel.Name))
-                throw new InvalidOperationException("That channel already exists in this collection.");
+                Debug.WriteLine("An attempt was made to add a channel that already exists in this collection.");
+                //throw new InvalidOperationException("That channel already exists in this collection.");
             Channels.Add(channel);
         }
 
